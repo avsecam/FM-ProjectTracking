@@ -13,7 +13,7 @@ body {
   margin: 0;
   width: 100%;
   height: 100vh;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 header {
@@ -146,6 +146,7 @@ main > img {
   letter-spacing: 0.3em;
   color: #a0a1ac;
   font-size: 0.9rem;
+  white-space: nowrap;
 }
 .info > h3 > span {
   background: #242942;
@@ -190,7 +191,7 @@ main > img {
 
 @media screen and (min-aspect-ratio: 1/1) {
   body {
-    width: 100vw;
+    width: 100%;
   }
 
   header {
