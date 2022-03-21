@@ -9,6 +9,10 @@ html {
   user-select: none;
 }
 
+li {
+  display: block;
+}
+
 body {
   margin: 0;
   width: 100%;
@@ -45,7 +49,7 @@ nav > ul.navOpen {
   opacity: 1;
   animation: fadeIn 0.5s forwards ease-in-out;
 }
-nav > ul > img {
+nav > ul > li > img {
   position: relative;
   width: 1.5rem;
   height: 1.5rem;
@@ -54,7 +58,7 @@ nav > ul > img {
   filter: brightness(8);
   cursor: pointer;
 }
-nav > ul > button {
+nav > ul > li > button {
   margin: 1rem 0;
   border: none;
   background-color: transparent;
@@ -71,11 +75,11 @@ nav > ul > button {
   cursor: pointer;
   transition: 0.3s;
 }
-nav > ul > button:hover {
+nav > ul > li > button:hover {
   letter-spacing: 0.2em;
   border-bottom-color: #eef3f6;
 }
-nav > ul > button:active {
+nav > ul > li > button:active {
   letter-spacing: 0.1em;
   transition: 0s;
 }
@@ -212,26 +216,28 @@ main > img {
     opacity: 1;
     animation: none !important;
   }
-  nav > ul > img {
+  nav > ul > li > img {
     display: none;
   }
-  nav > ul > button {
+  nav > ul > li > button {
     color: #242942;
     width: 7rem;
   }
-  nav > ul > button:hover {
+  nav > ul > li > button:hover {
     letter-spacing: 0.2em;
     border-bottom-color: #242942;
   }
-  nav > ul > button:last-of-type {
+  nav > ul > li:last-of-type {
     position: relative;
     margin-left: 4rem;
+  }
+  nav > ul > li:last-of-type > button {
     color: #a0a1ac;
   }
-  nav > ul > button:last-of-type:hover {
+  nav > ul > li:last-of-type > button:hover {
     border-bottom-color: #a0a1ac;
   }
-  nav > ul > button:last-of-type::before {
+  nav > ul > li:last-of-type > button::before {
     content: "";
     position: absolute;
     top: 50%;

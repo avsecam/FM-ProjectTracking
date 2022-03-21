@@ -20,6 +20,10 @@ html {
 	user-select: none;
 }
 
+li {
+	display: block
+}
+
 body {
 	margin: 0;
 	width: 100%;
@@ -59,7 +63,7 @@ nav {
 			animation: fadeIn 0.5s forwards ease-in-out;
 		}
 
-		> img {
+		> li > img {
 			position: relative;
 			width: 1.5rem;
 			height: 1.5rem;
@@ -69,7 +73,7 @@ nav {
 			cursor: pointer;
 		}
 
-		> button {
+		> li > button {
 			margin: 1rem 0;
 			border: none;
 			background-color: transparent;
@@ -243,11 +247,11 @@ main {
 			opacity: 1;
 			animation: none !important;
 
-			> img {
+			> li > img {
 				display: none;
 			}
 
-			> button {
+			> li > button {
 				color: $gray800;
 				width: 7rem;
 
@@ -255,27 +259,32 @@ main {
 					letter-spacing: 0.2em;
 					border-bottom-color: $gray800;
 				}
+			}
 
+			> li {
 				&:last-of-type {
 					position: relative;
 					margin-left: 4rem;
-					color: $gray400;
 
-					&:hover {
-						border-bottom-color: $gray400;
-					}
-					
-					&::before {
-						content: "";
-						position: absolute;
-						top: 50%;
-						left: -30%;
-						transform: translateY(-50%);
-						width: 0.5em;
-						height: 0.5em;
-						border-radius: 50%;
-						background-color: $gray400;
-						opacity: 0.5;
+					> button {
+						color: $gray400;
+
+						&:hover {
+							border-bottom-color: $gray400;
+						}
+						
+						&::before {
+							content: "";
+							position: absolute;
+							top: 50%;
+							left: -30%;
+							transform: translateY(-50%);
+							width: 0.5em;
+							height: 0.5em;
+							border-radius: 50%;
+							background-color: $gray400;
+							opacity: 0.5;
+						}
 					}
 				}
 			}
