@@ -23,6 +23,7 @@ html {
 body {
 	margin: 0;
 	width: 100%;
+	height: 100vh;
 	overflow-x: hidden;
 }
 
@@ -39,7 +40,7 @@ nav {
 	}
 
 	> ul {
-		background-color: hsla(0 0 0 / 50%);
+		background-color: hsla(0 0 0 / 70%);
 		z-index: 2;
 		position: fixed;
 		top: -500%;
@@ -49,21 +50,26 @@ nav {
 		padding: 0;
 		opacity: 0;
 		flex-direction: column;
-		animation: fadeOut 0.5s forwards ease-in-out;
 		
 		&.navOpen {
 			top: 50%;
-			padding: 100vw;
+			padding: 70vw;
 			height: auto;
 			opacity: 1;
 			animation: fadeIn 0.5s forwards ease-in-out;
 		}
 
-		&::after {
-
+		> img {
+			position: relative;
+			width: 1.5rem;
+			height: 1.5rem;
+			top: -5vw;
+			left: 30vw;
+			filter: brightness(8);
+			cursor: pointer;
 		}
 
-		> * {
+		> button {
 			margin: 1rem 0;
 			border: none;
 			background-color: transparent;
@@ -74,7 +80,8 @@ nav {
 			color: $gray200;
 			letter-spacing: 0.1em;
 			border-radius: 0.5em;
-			padding: 0.2em 1em;
+			padding: 0.2em 0;
+			width: 10rem;
 			border: 2px solid transparent;
 			cursor: pointer;
 			transition: 0.3s;
@@ -99,7 +106,7 @@ nav {
 		padding: 0;
 	}
 	99% {
-		padding: 100vw;
+		padding: 70vw;
 	}
 	100% {
 		opacity: 1;
@@ -109,7 +116,7 @@ nav {
 	0% {
 		top: 50%;
 		opacity: 1;
-		padding: 100vw;
+		padding: 70vw;
 	}
 	99% {
 		top: 50%;
@@ -121,20 +128,26 @@ nav {
 	}
 }
 
-main > img {
-	--extraWidth: 3rem;
-	overflow: visible;
-	position: relative;
-	left: var(--extraWidth);
-	object-fit: cover;
-	width: calc(100% + var(--extraWidth));
+main {
+	display: flex;
+	flex-direction: column;
+	
+	> img {
+		--extraWidth: 3rem;
+		overflow: visible;
+		position: relative;
+		left: var(--extraWidth);
+		object-fit: cover;
+		width: calc(100% + var(--extraWidth));
+	}
 }
+
 
 .grayRoundedBox {
 	position: absolute;
 	top: 0;
 	left: 50vw;
-	width: 100vw;
+	width: 70vw;
 	height: 60vh;
 	background-color: $gray200;
 	border-radius: 0 0 0 3rem;
@@ -194,13 +207,100 @@ main > img {
 			background-color: $red;
 			padding: 0.8em 1.3em;
 			border-radius: 0.3em;
-			margin-right: 1.5rem;
+			margin-right: 1.2rem;
 			cursor: pointer;
 
 			&:active {
 				transform: translateY(0.1em);
-				box-shadow: inset 0.3em 0.3em 0.3em hsla(0 0 0 / 20%);
+				box-shadow: inset 0.2em 0.2em 0.2em hsla(0 0 0 / 20%);
 			}
+		}
+	}
+}
+
+@media screen and (min-aspect-ratio: 1/1) {
+	body {
+		width: 100vw;
+	}
+	header {
+		padding: 2.5rem 5vw;
+	}
+
+	nav {
+		> img {
+			display: none;
+		}
+
+		> ul {
+			position: relative;
+			transform: none;
+			flex-direction: row;
+			left: 0;
+			height: auto;
+			width: auto;
+			background-color: transparent;
+			opacity: 1;
+			animation: none !important;
+
+			> img {
+				display: none;
+			}
+
+			> button {
+				color: $gray800;
+				width: 7rem;
+
+				&:hover {
+					letter-spacing: 0.2em;
+					border-bottom-color: $gray800;
+				}
+
+				&:last-of-type {
+					position: relative;
+					margin-left: 4rem;
+					color: $gray400;
+
+					&:hover {
+						border-bottom-color: $gray400;
+					}
+					
+					&::before {
+						content: "";
+						position: absolute;
+						top: 50%;
+						left: -30%;
+						transform: translateY(-50%);
+						width: 0.5em;
+						height: 0.5em;
+						border-radius: 50%;
+						background-color: $gray400;
+						opacity: 0.5;
+					}
+				}
+			}
+		}
+	}
+
+	main {
+		margin: 0 5vw;
+		margin-top: 2vh;
+		width: 100%;
+		flex-direction: row;
+		flex-flow: row-reverse;
+		justify-content: space-between;
+
+		> img {
+			width: 65%;
+			height: 50%;
+		}
+	}
+
+	.info {
+		width: 30vw;
+		padding: 0;
+		> h2 {
+			font-size: 1rem;
+			padding-right: 20%;
 		}
 	}
 }
